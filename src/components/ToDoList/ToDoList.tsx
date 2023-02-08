@@ -83,7 +83,7 @@ function ToDoList() {
 
   return (
     <form className="ToDoList" onSubmit={handleAdd}>
-      <div className="todo-add todo-row">
+      <div className="todo-add">
         <input
           type="text"
           value={text}
