@@ -1,0 +1,102 @@
+.ToDoList {
+  --clr-bg: #181818;
+  --clr-main: #212121;
+  --clr-hover: #3d3d3d;
+  --clr-font: #ffffff;
+  --clr-alt: #aaaaaa;
+  --transition: background-color 200ms;
+
+  height: 400px;
+  font-size: 1rem;
+  padding: 1em;
+  border: 1px solid var(--clr-hover);
+  /* border-radius: 10px; */
+  background-color: var(--clr-main);
+  color: var(--clr-font);
+  overflow: hidden;
+}
+
+.ToDoList li {
+  list-style-type: none;
+}
+.ToDoList ul {
+  margin: 0;
+  padding: 0;
+}
+
+.ToDoList button {
+  cursor: pointer;
+}
+.ToDoList input {
+  border: none;
+  outline: none;
+  width: 100%;
+  background-color: inherit;
+}
+
+.ToDoList .todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+  overflow-y: scroll;
+  max-height: 100%;
+  margin-top: 0.6em;
+}
+
+.ToDoList .todo-list::-webkit-scrollbar {
+  width: 0px;
+}
+
+.ToDoList .todo-add {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.ToDoList .todo-add input {
+  padding: 1em;
+}
+.ToDoList .todo-row {
+  border: 1px solid var(--clr-hover);
+  border-radius: 5px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  cursor: grab;
+}
+.ToDoList .todo-row:hover {
+  background-color: var(--clr-hover) !important;
+}
+.ToDoList .btn-favorite {
+  border: none;
+  background-color: inherit;
+  padding: 0 0.4em;
+  cursor: pointer;
+  color: var(--clr-alt);
+}
+
+.ToDoList .favorite {
+  color: #ffc83d;
+}
+.ToDoList button {
+  border: none;
+  background-color: var(--clr-main);
+  padding: 0em 0.5em;
+  transition: var(--transition);
+}
+.ToDoList button:hover {
+  background-color: var(--clr-hover);
+}
+
+.ToDoList .btn-row {
+  height: 100%;
+  transition: var(--transition);
+}
+
+.ToDoList .btn-trash:hover {
+  background-color: red;
+}
+.ToDoList .btn-edit:hover {
+  background-color: purple;
+}
