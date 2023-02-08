@@ -15,3 +15,5 @@ Simple React app components meant to be easily imported to other projects. Compo
 - Habit Tracker
 - Virtual Assistant
 - Voice Recorder
+- Unit Converter
+- Calculator
