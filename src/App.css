@@ -44,8 +44,11 @@ a {
 .app-sidebar {
   height: 100%;
   background-color: var(--clr-main);
-  padding: 1em 1em;
+  padding: 1em .4em;
   min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .app-display {
@@ -64,9 +67,19 @@ a {
 .app-list {
   display: flex;
   flex-direction: column;
-  gap: 0.6em;
+  /* gap: 0.6em; */
+}
+.resources {
+
 }
 .app-link {
   display: block;
   font-weight: 600;
+  font-size: 1.4rem;
+  padding: .2em 1em;
+  border-radius: 5px;
 }
+.app-link:hover {
+  background-color: var(--clr-hover);
+}
+

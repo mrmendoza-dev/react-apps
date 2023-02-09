@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;300;400;500;600;700&display=swap");
+
+.IOSCalculator {
+  width: 400px;
+  background-color: #000000;
+  color: #ffffff;
+  --btn-size: 85px;
+  --btn-space: 0.8em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-size: 16px;
+  font-weight: 300;
+  padding: 1em;
+  /* font-family: Helvetica, sans-serif; */
+  font-family: "Open Sans", sans-serif;
+}
+
+.IOSCalculator .input {
+  height: 200px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0.2em 0em;
+}
+.IOSCalculator .input input {
+  width: 100%;
+  border: none;
+  background-color: inherit;
+  text-align: right;
+  font: inherit;
+  font-weight: 300;
+
+  font-size: 6.6rem;
+  letter-spacing: -5px;
+}
+
+.IOSCalculator .input input:focus {
+  outline: none;
+}
+
+.IOSCalculator .buttons {
+  width: 100%;
+}
+
+.IOSCalculator .buttons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--btn-space);
+}
+
+.IOSCalculator .btn-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--btn-space);
+  width: 100%;
+}
+
+.IOSCalculator .btn-row button {
+  --size: 85px;
+  /* font: inherit; */
+  font-weight: 400;
+  width: var(--btn-size);
+  height: var(--btn-size);
+  font-size: 2.2rem;
+  cursor: pointer;
+  border-radius: 50%;
+  border: none;
+  background-color: #333333;
+  transition: all 200ms;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.IOSCalculator .btn-row button:hover {
+  background-color: #888;
+}
+.IOSCalculator .btn-row button:focus {
+  outline: none;
+}
+
+.IOSCalculator .btn-row .gray {
+  color: #000000;
+  background-color: #a4a5a4;
+  padding: 1em;
+}
+.IOSCalculator .btn-row .gray:hover {
+  color: #000000;
+  background-color: #eeeeee;
+}
+
+.IOSCalculator .btn-row .zero {
+  width: 50%;
+  border-radius: 3em;
+  text-align: left;
+  padding-left: 1em;
+  display: block;
+}
+.IOSCalculator .btn-row .orange {
+  background-color: #fe9400;
+  transition: all 600ms;
+}
+.IOSCalculator .btn-row .orange:hover {
+  color: #fe9400;
+  background-color: #ffffff;
+}

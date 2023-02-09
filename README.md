@@ -6,10 +6,12 @@ Simple React app components meant to be easily imported to other projects. Compo
 - To-Do List
 - Calculator
 - iOS Calculator
+- Currency Converter
+- Pomodoro Timer
 
 ## TODO
 - Clock (Analog/Digital/Text)
-- Timer (Pomodoro)
+- Timer
 - Alarm
 - Stopwatch
 - Countdown Timer
