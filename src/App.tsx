@@ -7,8 +7,8 @@ import Calculator from "./components/Calculator/Calculator";
 import IOSCalculator from "./components/IOSCalculator/IOSCalculator";
 import Pomodoro from "./components/Pomodoro/Pomodoro";
 import CurrencyConverter from "./components/CurrencyConverter/CurrencyConverter";
+import Dictionary from "./components/Dictionary/Dictionary";
 
-;
 function App() {
 
   return (
@@ -36,6 +36,9 @@ function App() {
           <Link to="/currency-converter" className="app-link">
             Currency Converter
           </Link>
+          <Link to="/dictionary" className="app-link">
+            Dictionary
+          </Link>
         </div>
 
         <div className="resources">
@@ -59,6 +62,7 @@ function App() {
             <Route path="/ios-calculator" element={<IOSCalculator />} />
             <Route path="/pomodoro" element={<Pomodoro />} />
             <Route path="/currency-converter" element={<CurrencyConverter />} />
+            <Route path="/dictionary" element={<Dictionary />} />
           </Routes>
         </div>
       </div>
