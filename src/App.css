@@ -60,6 +60,8 @@ a {
   justify-content: center;
   align-items: center;
   max-width: 1200px;
+    /* overflow-y: scroll; */
+
 }
 .app-wrapper {
   margin: 0 auto;
