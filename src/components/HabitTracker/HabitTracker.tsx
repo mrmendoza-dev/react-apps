@@ -5,8 +5,8 @@ import "./index.css";
 function HabitTracker() {
 
 
-    const [habits, setHabits] = useState([]);
-    const [newHabit, setNewHabit] = useState("");
+    const [habits, setHabits] = useState<any>([]);
+    const [newHabit, setNewHabit] = useState<any>("");
 
     const handleAddHabit = () => {
       setHabits([...habits, newHabit]);
@@ -24,7 +24,7 @@ function HabitTracker() {
           <button onClick={handleAddHabit}>Add Habit</button>
         </div>
         <div style={{ width: "70%", padding: "20px" }}>
-          {habits.map((habit, index) => (
+          {habits.map((habit: any, index: any) => (
             <div key={index} style={{ display: "flex", alignItems: "center" }}>
               <div style={{ width: "30%" }}>{habit}</div>
               <div style={{ display: "flex", width: "70%" }}>
