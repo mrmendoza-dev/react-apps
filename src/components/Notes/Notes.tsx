@@ -124,7 +124,10 @@ function Notes() {
           ))}
         </ul>
       </div>
-      <div className="editor-panel">
+      <div
+        className="editor-panel"
+        style={{ width: selectedNote !== null ? "400px" : "0px" }}
+      >
         {selectedNote !== null && (
           <div>
             <div className="editor-main">

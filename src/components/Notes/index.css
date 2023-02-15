@@ -4,7 +4,7 @@
   --clr-hover: #3d3d3d;
   --clr-font: #ffffff;
   --clr-alt: #aaaaaa;
-  --transition: background-color 200ms;
+  --transition: all 200ms;
 
   display: flex;
   justify-content: flex-start;
@@ -30,7 +30,13 @@
 
 .Notes .control-panel {
   height: 100%;
+
 }
+.Notes .editor-panel {
+    transition: var(--transition);
+
+}
+
 
 .Notes .editor-panel > div {
   display: flex;
