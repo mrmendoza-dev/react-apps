@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./index.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { icons } from "../../assets/icons";
 
 let dummyData = [
   {
@@ -101,10 +103,10 @@ function Notes() {
       <div className="control-panel">
         <div className="btn-tray">
           <button className="btn-add" onClick={addNote}>
-            <i className="fa-solid fa-plus"></i>
+            <FontAwesomeIcon title="Add" icon={icons.faPlus} />
           </button>
           <button className="btn-add" onClick={addNote}>
-            <i className="fa-solid fa-filter"></i>
+            <FontAwesomeIcon title="Filter" icon={icons.faFilter} />
           </button>
         </div>
         <ul className="note-list">
@@ -136,9 +138,16 @@ function Notes() {
                 onClick={() => handleFavorite(notes[selectedNote].id)}
               >
                 {notes[selectedNote].favorite ? (
-                  <i className="fa-solid fa-star favorite"></i>
+                  <FontAwesomeIcon
+                    title="Favorite"
+                    icon={icons.faStarFilled}
+                    className="favorite"
+                  />
                 ) : (
-                  <i className="fa-regular fa-star"></i>
+                  <FontAwesomeIcon
+                    title="Unfavorite"
+                    icon={icons.faStarEmpty}
+                  />
                 )}
               </button>
 
@@ -156,7 +165,7 @@ function Notes() {
                   deleteNote(notes[selectedNote]);
                 }}
               >
-                <i className="fa-solid fa-trash"></i>
+                <FontAwesomeIcon title="Delete" icon={icons.faTrash} />
               </button>
             </div>
 

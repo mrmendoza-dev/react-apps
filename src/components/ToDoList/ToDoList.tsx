@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./index.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { icons } from "../../assets/icons";
 
 let dummyData = [
   { id: 1675411290144, text: "Wash car", favorite: false },
@@ -91,7 +93,7 @@ function ToDoList() {
           ref={inputRef}
         />
         <button className="btn-row" onClick={handleAdd}>
-          <i className="fa-solid fa-plus"></i>
+          <FontAwesomeIcon title="Add" icon={icons.faPlus} />
         </button>
       </div>
       <ul className="todo-list">
@@ -109,9 +111,13 @@ function ToDoList() {
               onClick={() => handleFavorite(todo.id)}
             >
               {todo.favorite ? (
-                <i className="fa-solid fa-star favorite"></i>
+                <FontAwesomeIcon
+                  title="Favorite"
+                  icon={icons.faStarFilled}
+                  className="favorite"
+                />
               ) : (
-                <i className="fa-regular fa-star"></i>
+                <FontAwesomeIcon title="Unfavorite" icon={icons.faStarEmpty} />
               )}
             </span>
             <input
@@ -120,19 +126,12 @@ function ToDoList() {
               onChange={(e) => handleEdit(todo.id, e.target.value)}
             />
 
-            {/* <button
-              className="btn-row btn-edit"
-              onClick={() => handleDelete(todo.id)}
-            >
-              <i className="fa-solid fa-pen-to-square"></i>
-            </button> */}
             <button
               className="btn-row btn-trash"
               onClick={() => handleDelete(todo.id)}
             >
-              <i className="fa-solid fa-trash"></i>
+              <FontAwesomeIcon title="Delete" icon={icons.faTrash} />
             </button>
-
           </li>
         ))}
       </ul>

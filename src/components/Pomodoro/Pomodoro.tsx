@@ -9,7 +9,7 @@ function Pomodoro() {
   const [currentCycle, setCurrentCycle] = useState<number>(0);
 
   useEffect(() => {
-    let intervalId: number | undefined;
+    let intervalId: number | any;
     if (isRunning) {
       intervalId = setInterval(() => {
         if (seconds > 0) {
