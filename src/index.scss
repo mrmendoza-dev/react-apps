@@ -1,12 +1,14 @@
 
 
+$bg-color: red;
+
 .App {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   height: 100vh;
   width: 100vw;
-  background-color: blue
+  background-color: $bg-color
 }
 
 .app-sidebar {
