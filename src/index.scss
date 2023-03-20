@@ -1,6 +1,11 @@
 
 
-$bg-color: red;
+$bg-color: rgb(106, 255, 0);
+
+.bg-color {
+  background-color: $bg-color
+
+}
 
 .App {
   display: flex;
@@ -8,7 +13,7 @@ $bg-color: red;
   align-items: center;
   height: 100vh;
   width: 100vw;
-  background-color: $bg-color
+  @extend .bg-color;
 }
 
 .app-sidebar {
