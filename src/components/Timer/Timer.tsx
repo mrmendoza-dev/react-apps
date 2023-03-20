@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
-import "./Timer.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect, useState } from "react";
 import { icons } from "../../assets/icons";
+import "./Timer.scss";
 
 function Timer() {
   const [minutes, setMinutes] = useState<number>(25);
@@ -29,7 +29,6 @@ function Timer() {
     return () => clearInterval(intervalId);
   }, [isRunning, minutes, seconds]);
 
-
   const handleStart = () => {
     setIsRunning(true);
   };
@@ -37,7 +36,6 @@ function Timer() {
   const handleStop = () => {
     setIsRunning(false);
   };
-
 
   const handleReset = () => {
     setMinutes(25);
@@ -53,8 +51,6 @@ function Timer() {
   const renderTime = (m: number, s: number) => {
     return `${m < 10 ? "0" + m : m}:${s < 10 ? "0" + s : s}`;
   };
-
-
 
   return (
     <div className="Timer">
@@ -77,7 +73,6 @@ function Timer() {
             <FontAwesomeIcon icon={icons.faPlay} />
           </button>
         )}
-
       </div>
     </div>
   );

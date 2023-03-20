@@ -1,17 +1,14 @@
-
-import React, { useState, useEffect, useRef } from "react";
-import "./index.css";
+import { useState } from "react";
+import "./index.scss";
 
 function HabitTracker() {
+  const [habits, setHabits] = useState<any>([]);
+  const [newHabit, setNewHabit] = useState<any>("");
 
-
-    const [habits, setHabits] = useState<any>([]);
-    const [newHabit, setNewHabit] = useState<any>("");
-
-    const handleAddHabit = () => {
-      setHabits([...habits, newHabit]);
-      setNewHabit("");
-    };
+  const handleAddHabit = () => {
+    setHabits([...habits, newHabit]);
+    setNewHabit("");
+  };
   return (
     <div className="HabitTracker">
       <div style={{ display: "flex" }}>

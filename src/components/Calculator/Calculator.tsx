@@ -1,5 +1,5 @@
-import "./index.css";
-import React, { useState } from "react";
+import { useState } from "react";
+import "./index.scss";
 
 function Calculator() {
   const [input, setInput] = useState<any>("0");
@@ -86,6 +86,6 @@ function Calculator() {
       </div>
     </div>
   );
-};
+}
 
 export default Calculator;

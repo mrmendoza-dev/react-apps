@@ -1,28 +1,24 @@
-import { useState } from 'react'
-import './App.css'
-import "./index.css";
+import "./App.scss";
 import "./index.scss";
 
-import {Routes, Route, Link} from "react-router-dom"
-import Notes from './components/Notes/Notes';
-import ToDoList from './components/ToDoList/ToDoList';
+import { Link, Route, Routes } from "react-router-dom";
 import Calculator from "./components/Calculator/Calculator";
 import IOSCalculator from "./components/IOSCalculator/IOSCalculator";
+import Notes from "./components/Notes/Notes";
 import Timer from "./components/Timer/Timer";
+import ToDoList from "./components/ToDoList/ToDoList";
 
-import Pomodoro from "./components/Pomodoro/Pomodoro";
+import Bookmarks from "./components/Bookmarks/Bookmarks";
+import CryptoModule from "./components/CryptoModule/CryptoModule";
 import CurrencyConverter from "./components/CurrencyConverter/CurrencyConverter";
-import Dictionary from "./components/Dictionary/Dictionary";
 import Dev from "./components/Dev/Dev";
+import Dictionary from "./components/Dictionary/Dictionary";
 import HabitTracker from "./components/HabitTracker/HabitTracker";
-import CryptoModule from './components/CryptoModule/CryptoModule';
+import Memorize from "./components/Memorize/Memorize";
+import Pomodoro from "./components/Pomodoro/Pomodoro";
 import WeatherModule from "./components/WeatherModule/WeatherModule";
-import Bookmarks from './components/Bookmarks/Bookmarks';
-import Memorize from './components/Memorize/Memorize';
 
 function App() {
-
-
   const apps = [
     { name: "Home", path: "/", app: <App /> },
     { name: "Notes", path: "/notes", app: <Notes /> },
@@ -31,7 +27,11 @@ function App() {
     { name: "iOS Calculator", path: "/ios-calculator", app: <IOSCalculator /> },
     { name: "Timer", path: "/timer", app: <Timer /> },
     { name: "Pomodoro", path: "/pomodoro", app: <Pomodoro /> },
-    { name: "Currency Converter", path: "/currency-converter", app: <CurrencyConverter /> },
+    {
+      name: "Currency Converter",
+      path: "/currency-converter",
+      app: <CurrencyConverter />,
+    },
     { name: "Dictionary", path: "/dictionary", app: <Dictionary /> },
     { name: "Habit Tracker", path: "/habit-tracker", app: <HabitTracker /> },
     { name: "Crypto", path: "/crypto", app: <CryptoModule /> },
@@ -40,9 +40,9 @@ function App() {
     { name: "Memorize", path: "/memorize", app: <Memorize /> },
   ];
 
-const element = {
-  el: <Memorize />,
-};
+  const element = {
+    el: <Memorize />,
+  };
 
   return (
     <div className="App">
@@ -101,4 +101,4 @@ const element = {
   );
 }
 
-export default App
+export default App;

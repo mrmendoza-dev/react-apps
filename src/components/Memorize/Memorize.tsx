@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
 import moment from "moment";
-import "./Memorize.css"
+import { useEffect, useState } from "react";
+import "./Memorize.scss";
 function Memorize() {
   const [items, setItems] = useState<any>([]);
   const [currentTab, setCurrentTab] = useState("all");
@@ -101,7 +101,6 @@ function Memorize() {
 
 export default Memorize;
 
-
 const AllItems = (props: any) => {
   return (
     <div>
@@ -118,7 +117,6 @@ const AllItems = (props: any) => {
     </div>
   );
 };
-
 
 const DueItems = (props: any) => {
   const dueItems = props.items.filter((item: any) =>
@@ -141,4 +139,3 @@ const DueItems = (props: any) => {
     </div>
   );
 };
-

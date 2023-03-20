@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
-import "./Pomodoro.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect, useState } from "react";
 import { icons } from "../../assets/icons";
 import useLocalStorage from "../../hooks/useLocalStorage";
-
+import "./Pomodoro.scss";
 
 function Pomodoro() {
   const [minutes, setMinutes] = useLocalStorage("minutes", 25);
@@ -83,14 +82,11 @@ function Pomodoro() {
       }
     } else {
       setMinutes(workTime);
-      setCurrentInterval((prevVal: any)=> prevVal+1)
+      setCurrentInterval((prevVal: any) => prevVal + 1);
     }
     setSeconds(0);
     setIsRunning(false);
-
   }, [onBreak]);
-
-
 
   useEffect(() => {
     setCurrentInterval(1);
@@ -139,8 +135,6 @@ function Pomodoro() {
 }
 
 export default Pomodoro;
-
-
 
 // const TaskList = () => {
 //   const [tasks, setTasks] = useLocalStorage("pomodoroTasks",[

@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
-import "./CryptoModule.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect, useState } from "react";
 import { icons } from "../../assets/icons";
 import useLocalStorage from "../../hooks/useLocalStorage";
+import "./CryptoModule.scss";
 
 const CryptoModule = () => {
   const [cryptoData, setCryptoData] = useState<any>(null);

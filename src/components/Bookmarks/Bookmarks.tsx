@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
-import "./Bookmarks.css";
+import { useState } from "react";
+import "./Bookmarks.scss";
 
 function Bookmarks() {
   const [bookmarks, setBookmarks] = useState<any>([

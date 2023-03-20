@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
-import "./index.css";
+import { useEffect, useState } from "react";
+import "./index.scss";
 
 function Dictionary() {
   const dictionaryKey = "a6ee5012-0997-482f-968b-1fc532f34cb2";

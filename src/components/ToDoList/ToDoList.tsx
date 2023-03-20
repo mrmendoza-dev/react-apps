@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
-import "./ToDoList.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect, useRef, useState } from "react";
 import { icons } from "../../assets/icons";
 import useLocalStorage from "../../hooks/useLocalStorage";
+import "./ToDoList.scss";
 let dummyData = [
   { id: 1675411290144, text: "Wash car", favorite: false, list: "" },
   { id: 1675411292758, text: "Pay bills", favorite: true, list: "" },

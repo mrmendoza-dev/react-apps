@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
-import "./index.css";
+import { useEffect, useRef, useState } from "react";
+import "./index.scss";
 
 function Dev() {
   return (
@@ -215,8 +215,6 @@ const HoverModal = () => {
     </div>
   );
 };
-
-
 
 function DraggableDiv(props: any) {
   const [position, setPosition] = useState({ x: 0, y: 0 });

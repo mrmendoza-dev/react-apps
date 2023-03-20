@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
-import "./Notes.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from "react";
 import { icons } from "../../assets/icons";
 import useLocalStorage from "../../hooks/useLocalStorage";
+import "./Notes.scss";
 
 let dummyData = [
   {

@@ -1,6 +1,5 @@
-
-import React, { useState, useEffect, useRef } from "react";
-import "./WeatherModule.css";
+import { useEffect, useState } from "react";
+import "./WeatherModule.scss";
 
 const WeatherModule = () => {
   const [weatherData, setWeatherData] = useState<any>(null);
@@ -17,14 +16,14 @@ const WeatherModule = () => {
         })
         .then((data) => {
           setWeatherData(data);
-          console.log(data)
+          console.log(data);
         })
         .catch((err) => console.error(err));
     });
   }
-      useEffect(() => {
-        updateWeather();
-      }, []);
+  useEffect(() => {
+    updateWeather();
+  }, []);
 
   return (
     <div className="WeatherModule">
@@ -39,7 +38,8 @@ const WeatherModule = () => {
           <p className="weather-city">{weatherData.name}</p>
           <p className="weather-city">{weatherData.weather[0].main}</p>
           <p className="weather-city">
-            High: {weatherData.main.temp_max.toFixed(0)}, Low: {weatherData.main.temp_min.toFixed(0)}
+            High: {weatherData.main.temp_max.toFixed(0)}, Low:{" "}
+            {weatherData.main.temp_min.toFixed(0)}
           </p>
         </>
       )}

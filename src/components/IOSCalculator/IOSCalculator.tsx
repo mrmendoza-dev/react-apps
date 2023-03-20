@@ -1,5 +1,5 @@
-import "./index.css";
-import React, { useState } from "react";
+import { useState } from "react";
+import "./index.scss";
 
 function Calculator() {
   const [input, setInput] = useState<any>("0");
@@ -16,8 +16,7 @@ function Calculator() {
     } else if (value === "+/-") {
       setInput((prevVal: any) => -prevVal);
     } else if (value === "%") {
-              setInput(input / 100);
-
+      setInput(input / 100);
     } else {
       if (input === "0") {
         setInput(value);
@@ -88,6 +87,6 @@ function Calculator() {
       </div>
     </div>
   );
-};
+}
 
 export default Calculator;
