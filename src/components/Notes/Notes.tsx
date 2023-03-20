@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
-import "./index.css";
+import "./Notes.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { icons } from "../../assets/icons";
+import useLocalStorage from "../../hooks/useLocalStorage";
 
 let dummyData = [
   {
@@ -37,34 +38,23 @@ let dummyData = [
 ];
 
 function Notes() {
-  // state to store list of notes
-  const [notes, setNotes] = useState(
-    JSON.parse(
-      localStorage.getItem("notes") || JSON.stringify(dummyData) || "[]"
-    )
-  );
-
-  // state to store selected note
+  const [notes, setNotes] = useLocalStorage("notes", dummyData);
   const [selectedNote, setSelectedNote] = useState(null);
 
-  // function to add new note to the list
   const addNote = () => {
     setNotes([...notes, { id: Date.now(), title: "", text: "" }]);
   };
   const deleteNote = (deleteNote: any) => {
-    // setNotes([...notes, { id: Date.now(), title: "", text: "" }]);
     setNotes(notes.filter((note: any) => note.id !== deleteNote.id));
     setSelectedNote(null);
     console.log(deleteNote);
   };
 
-  // function to update selected note
   const updateSelectedNote = (e: any, index: any) => {
     const updatedNotes = [...notes];
     updatedNotes[index][e.target.name] = e.target.value;
     setNotes(updatedNotes);
     setSelectedNote(index);
-    localStorage.setItem("notes", JSON.stringify(updatedNotes));
   };
 
   const handleFavorite = (id: any) => {
@@ -93,10 +83,6 @@ function Notes() {
     newList.splice(targetIndex, 0, removed);
     setNotes(newList);
   };
-
-  useEffect(() => {
-    localStorage.setItem("notes", JSON.stringify(notes));
-  }, [notes]);
 
   return (
     <div className="Notes">

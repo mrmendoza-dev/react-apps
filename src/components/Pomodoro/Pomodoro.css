@@ -1,0 +1,37 @@
+
+
+.Pomodoro {
+
+}
+
+button {
+    cursor: pointer;
+}
+.time-display {
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+
+.time-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.time-control button {
+    font-size: 2rem;
+}
+
+
+.Pomodoro button {
+    border: none;
+}
+
+.time-control .big {
+    font-size: 3rem;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+
+}

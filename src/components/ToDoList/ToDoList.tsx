@@ -1,31 +1,33 @@
 import React, { useState, useEffect, useRef } from "react";
-import "./index.css";
+import "./ToDoList.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { icons } from "../../assets/icons";
-
+import useLocalStorage from "../../hooks/useLocalStorage";
 let dummyData = [
-  { id: 1675411290144, text: "Wash car", favorite: false },
-  { id: 1675411292758, text: "Pay bills", favorite: true },
-  { id: 1675411299480, text: "Go to the gym", favorite: false },
-  { id: 1675411306268, text: "Grocery shopping", favorite: true },
-  { id: 1675411344708, text: "Wash clothes", favorite: false },
-  { id: 1675411356258, text: "Daily reading", favorite: false },
+  { id: 1675411290144, text: "Wash car", favorite: false, list: "" },
+  { id: 1675411292758, text: "Pay bills", favorite: true, list: "" },
+  { id: 1675411299480, text: "Go to the gym", favorite: false, list: "" },
+  { id: 1675411306268, text: "Grocery shopping", favorite: true, list: "" },
+  { id: 1675411344708, text: "Wash clothes", favorite: false, list: "" },
+  { id: 1675411356258, text: "Daily reading", favorite: false, list: "" },
 ];
 
 function ToDoList() {
-  const [todos, setTodos] = useState(
-    JSON.parse(
-      localStorage.getItem("todos") || JSON.stringify(dummyData) || "[]"
-    )
+  const [todos, setTodos] = useLocalStorage("todos", dummyData);
+  const [lists, setLists] = useLocalStorage("todoLists", []);
+  const [displayLists, setDisplayLists] = useLocalStorage(
+    "todoDisplayLists",
+    []
   );
   const [text, setText] = useState("");
+  const [currentTab, setCurrentTab] = useLocalStorage(
+    "todoCurrentTab",
+    "tasks"
+  );
+
   const inputRef: any = useRef(null);
 
-  useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
-
-  const handleAdd = (e: any) => {
+  const handleAddTask = (e: any) => {
     e.preventDefault();
 
     setTodos([
@@ -66,76 +68,143 @@ function ToDoList() {
     );
   };
 
-    const onDragStart = (e: any, index: number) => {
-      e.dataTransfer.setData("index", index);
+  const onDragStart = (e: any, index: number) => {
+    e.dataTransfer.setData("index", index);
+  };
+
+  const onDragOver = (e: any) => {
+    e.preventDefault();
+  };
+
+  const onDrop = (e: any, targetIndex: number) => {
+    const sourceIndex = e.dataTransfer.getData("index");
+    const newList = [...displayLists];
+    const [removed] = newList.splice(sourceIndex, 1);
+    newList.splice(targetIndex, 0, removed);
+    setDisplayLists(newList);
+  };
+
+  const handleAddList = () => {
+    const newList = {
+      id: lists.length + 1,
+      title: "New List",
     };
 
-    const onDragOver = (e: any) => {
-      e.preventDefault();
-    };
+    setLists([...lists, newList]);
+  };
 
-    const onDrop = (e: any, targetIndex: number) => {
-      const sourceIndex = e.dataTransfer.getData("index");
-      const newList = [...todos];
-      const [removed] = newList.splice(sourceIndex, 1);
-      newList.splice(targetIndex, 0, removed);
-      setTodos(newList);
-    };
+  const renderLists = () => {
+    return lists.map((list: any) => (
+      <div className="" key={list.id}>
+        <p>{list.title}</p>
+      </div>
+    ));
+  };
 
+  useEffect(() => {
+    if (currentTab === "tasks") {
+      setDisplayLists(todos);
+    } else if (currentTab === "important") {
+      let tasks = todos.filter((task: any) => task.favorite);
+
+      setDisplayLists(tasks);
+    }
+  }, [currentTab, todos]);
 
   return (
-    <form className="ToDoList" onSubmit={handleAdd}>
-      <div className="todo-add">
-        <input
-          type="text"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          ref={inputRef}
-        />
-        <button className="btn-row" onClick={handleAdd}>
-          <FontAwesomeIcon title="Add" icon={icons.faPlus} />
+    <div className="ToDoList">
+      <div className="tabs">
+        <button
+          className=""
+          onClick={() => {
+            setCurrentTab("tasks");
+          }}
+        >
+          <FontAwesomeIcon title="" icon={icons.faHouse} />
+        </button>
+        <button
+          className=""
+          onClick={() => {
+            setCurrentTab("important");
+          }}
+        >
+          <FontAwesomeIcon title="" icon={icons.faStarFilled} />
+        </button>
+
+        <div className="todo-lists">
+          <div className="lists">{renderLists()}</div>
+        </div>
+        <button className="" onClick={handleAddList}>
+          <FontAwesomeIcon title="" icon={icons.faPlus} />
         </button>
       </div>
-      <ul className="todo-list">
-        {todos.map((todo: any, index: any) => (
-          <li
-            key={todo.id}
-            className="todo-row"
-            draggable
-            onDragStart={(e) => onDragStart(e, index)}
-            onDragOver={(e) => onDragOver(e)}
-            onDrop={(e) => onDrop(e, index)}
-          >
-            <span
-              className="btn-favorite"
-              onClick={() => handleFavorite(todo.id)}
-            >
-              {todo.favorite ? (
-                <FontAwesomeIcon
-                  title="Favorite"
-                  icon={icons.faStarFilled}
-                  className="favorite"
-                />
-              ) : (
-                <FontAwesomeIcon title="Unfavorite" icon={icons.faStarEmpty} />
-              )}
-            </span>
+
+      <div className="main">
+        <p className="">
+          {currentTab === "tasks"
+            ? "Tasks"
+            : currentTab === "important"
+            ? "Important"
+            : ""}
+        </p>
+        <form className="" onSubmit={handleAddTask}>
+          <div className="todo-add">
             <input
               type="text"
-              value={todo.text}
-              onChange={(e) => handleEdit(todo.id, e.target.value)}
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+              ref={inputRef}
             />
-
-            <button
-              className="btn-row btn-trash"
-              onClick={() => handleDelete(todo.id)}
-            >
-              <FontAwesomeIcon title="Delete" icon={icons.faTrash} />
+            <button className="btn-row" onClick={handleAddTask}>
+              <FontAwesomeIcon title="Add" icon={icons.faPlus} />
             </button>
-          </li>
-        ))}
-      </ul>
-    </form>
+          </div>
+        </form>
+
+        <ul className="todo-list">
+          {displayLists.map((todo: any, index: any) => (
+            <li
+              key={todo.id}
+              className="todo-row"
+              draggable
+              onDragStart={(e) => onDragStart(e, index)}
+              onDragOver={(e) => onDragOver(e)}
+              onDrop={(e) => onDrop(e, index)}
+            >
+              <span
+                className="btn-favorite"
+                onClick={() => handleFavorite(todo.id)}
+              >
+                {todo.favorite ? (
+                  <FontAwesomeIcon
+                    title="Favorite"
+                    icon={icons.faStarFilled}
+                    className="favorite"
+                  />
+                ) : (
+                  <FontAwesomeIcon
+                    title="Unfavorite"
+                    icon={icons.faStarEmpty}
+                  />
+                )}
+              </span>
+              <input
+                type="text"
+                value={todo.text}
+                onChange={(e) => handleEdit(todo.id, e.target.value)}
+              />
+
+              <button
+                className="btn-row btn-trash"
+                onClick={() => handleDelete(todo.id)}
+              >
+                <FontAwesomeIcon title="Delete" icon={icons.faTrash} />
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
   );
 }
 

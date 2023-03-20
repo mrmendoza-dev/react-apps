@@ -1,0 +1,15 @@
+
+
+.Memorize {
+
+}
+
+.Memorize li {
+    list-style-type: none;
+    display: flex;
+    gap: 1em;
+}
+
+.Memorize ul {
+    padding: 0;
+}

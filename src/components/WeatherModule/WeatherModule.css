@@ -1,0 +1,19 @@
+.WeatherModule {
+  text-align: right;
+}
+
+.weather > img {
+  width: 70px;
+}
+
+.weather-temp {
+  margin: 0;
+  font-size: 1.7rem;
+}
+
+.weather-city {
+  /* width: 100%; */
+  text-align: right;
+  margin: 0;
+  font-size: 1.2rem;
+}

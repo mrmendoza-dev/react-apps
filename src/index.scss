@@ -1,0 +1,33 @@
+
+
+.App {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: blue
+}
+
+.app-sidebar {
+  height: 100%;
+  background-color: var(--clr-main);
+  padding: 1em .4em;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.app-display {
+  height: 100%;
+  flex-grow: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+    /* overflow-y: scroll; */
+
+}
+

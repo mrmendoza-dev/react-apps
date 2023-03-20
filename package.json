@@ -15,8 +15,11 @@
     "@fortawesome/free-solid-svg-icons": "^6.3.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@fortawesome/react-native-fontawesome": "^0.3.0",
+    "moment": "^2.29.4",
+    "nanoid": "^4.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-favicon": "^2.0.3",
     "react-native-svg": "^13.8.0",
     "react-router-dom": "^6.8.0"
   },
@@ -24,6 +27,8 @@
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react": "^3.1.0",
+    "node-sass": "^8.0.0",
+    "sass": "^1.59.3",
     "typescript": "^4.9.3",
     "vite": "^4.1.0"
   }

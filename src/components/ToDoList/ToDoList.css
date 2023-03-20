@@ -14,6 +14,10 @@
   background-color: var(--clr-main);
   color: var(--clr-font);
   overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .ToDoList li {
@@ -39,7 +43,7 @@
   flex-direction: column;
   gap: 0.2em;
   overflow-y: scroll;
-  max-height: 100%;
+  max-height: 300px;
   margin-top: 0.6em;
 }
 
@@ -104,4 +108,16 @@
 }
 .ToDoList .btn-edit:hover {
   background-color: purple;
+}
+
+
+
+
+.ToDoList .tabs {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+}
+.tabs button {
+  font-size: 1.6rem;
 }
