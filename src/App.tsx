@@ -22,7 +22,6 @@ import MusicPlayer from "./components/MusicPlayer/MusicPlayer";
 
 function App() {
   const apps = [
-    { name: "Home", path: "/", app: <App /> },
     { name: "Notes", path: "/notes", app: <Notes /> },
     { name: "To-Do List", path: "/todo", app: <ToDoList /> },
     { name: "Calculator", path: "/calculator", app: <Calculator /> },
@@ -81,10 +80,10 @@ function App() {
         <div className="app-wrapper">
           <Routes>
 
-            {apps.map((app) => {
+            {/* {apps.map((app) => {
               return <Route path={app.path} element={app.app} key={nanoid()} />;
-            })}
-            {/* <Route path="/notes" element={<Notes />} />
+            })} */}
+            <Route path="/notes" element={<Notes />} />
             <Route path="/todo" element={<ToDoList />} />
             <Route path="/calculator" element={<Calculator />} />
             <Route path="/ios-calculator" element={<IOSCalculator />} />
@@ -99,7 +98,7 @@ function App() {
             <Route path="/memorize" element={<Memorize />} />
             <Route path="/wikipedia" element={<Wikipedia />} />
             <Route path="/vocabulary" element={<Vocabulary />} />
-            <Route path="/music-player" element={<MusicPlayer />} /> */}
+            <Route path="/music-player" element={<MusicPlayer />} />
             
             <Route path="/dev" element={<Dev />} />
           </Routes>
