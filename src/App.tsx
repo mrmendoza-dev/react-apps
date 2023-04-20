@@ -39,10 +39,10 @@ function App() {
     { name: "Crypto", path: "/crypto", app: <CryptoModule /> },
     { name: "Weather", path: "/weather", app: <WeatherModule /> },
     { name: "Bookmarks", path: "/bookmarks", app: <Bookmarks /> },
-    { name: "Memorize", path: "/memorize", app: <Memorize /> },
-    { name: "Wikipedia", path: "/wikipedia", app: <Wikipedia /> },
-    { name: "Vocabulary", path: "/vocabulary", app: <Vocabulary /> },
-    { name: "MusicPlayer", path: "/music-player", app: <MusicPlayer /> },
+    // { name: "Memorize", path: "/memorize", app: <Memorize /> },
+    // { name: "Wikipedia", path: "/wikipedia", app: <Wikipedia /> },
+    // { name: "Vocabulary", path: "/vocabulary", app: <Vocabulary /> },
+    // { name: "MusicPlayer", path: "/music-player", app: <MusicPlayer /> },
   ];
 
 
@@ -85,7 +85,6 @@ function App() {
               return <Route path={app.path} element={app.app} key={nanoid()} />;
             })}
 
-            {/* <Route path="/memorize" element={<Memorize />} /> */}
 
             <Route path="/dev" element={<Dev />} />
           </Routes>
