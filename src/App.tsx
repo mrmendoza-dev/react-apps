@@ -1,7 +1,12 @@
 import "./App.scss";
 import "./index.scss";
 import { nanoid } from "nanoid";
+
+import { lazy, Suspense } from "react";
 import { Link, Route, Routes } from "react-router-dom";
+
+
+
 import Calculator from "./components/Calculator/Calculator";
 import IOSCalculator from "./components/IOSCalculator/IOSCalculator";
 import Notes from "./components/Notes/Notes";
@@ -38,7 +43,7 @@ function App() {
     { name: "Crypto", path: "/crypto", app: <CryptoModule /> },
     { name: "Weather", path: "/weather", app: <WeatherModule /> },
     { name: "Bookmarks", path: "/bookmarks", app: <Bookmarks /> },
-    { name: "Memorize", path: "/memorize", app: <Memorize /> },
+    // { name: "Memorize", path: "/memorize", app: <Memorize /> },
     { name: "Wikipedia", path: "/wikipedia", app: <Wikipedia /> },
     { name: "Vocabulary", path: "/vocabulary", app: <Vocabulary /> },
     { name: "MusicPlayer", path: "/music-player", app: <MusicPlayer /> },
@@ -78,30 +83,34 @@ function App() {
 
       <div className="app-display">
         <div className="app-wrapper">
-          <Routes>
-
-            {/* {apps.map((app) => {
+          <Suspense fallback={<div>Loading...</div>}>
+            <Routes>
+              {apps.map((app) => {
               return <Route path={app.path} element={app.app} key={nanoid()} />;
-            })} */}
-            <Route path="/notes" element={<Notes />} />
-            <Route path="/todo" element={<ToDoList />} />
-            <Route path="/calculator" element={<Calculator />} />
-            <Route path="/ios-calculator" element={<IOSCalculator />} />
-            <Route path="/timer" element={<Timer />} />
-            <Route path="/pomodoro" element={<Pomodoro />} />
-            <Route path="/currency-converter" element={<CurrencyConverter />} />
-            <Route path="/dictionary" element={<Dictionary />} />
-            <Route path="/habit-tracker" element={<HabitTracker />} />
-            <Route path="/crypto" element={<CryptoModule />} />
-            <Route path="/weather" element={<WeatherModule />} />
-            <Route path="/bookmarks" element={<Bookmarks />} />
-            <Route path="/memorize" element={<Memorize />} />
-            <Route path="/wikipedia" element={<Wikipedia />} />
-            <Route path="/vocabulary" element={<Vocabulary />} />
-            <Route path="/music-player" element={<MusicPlayer />} />
-            
-            <Route path="/dev" element={<Dev />} />
-          </Routes>
+            })}
+              {/* <Route path="/notes" element={<Notes />} />
+              <Route path="/todo" element={<ToDoList />} />
+              <Route path="/calculator" element={<Calculator />} />
+              <Route path="/ios-calculator" element={<IOSCalculator />} />
+              <Route path="/timer" element={<Timer />} />
+              <Route path="/pomodoro" element={<Pomodoro />} />
+              <Route
+                path="/currency-converter"
+                element={<CurrencyConverter />}
+              />
+              <Route path="/dictionary" element={<Dictionary />} />
+              <Route path="/habit-tracker" element={<HabitTracker />} />
+              <Route path="/crypto" element={<CryptoModule />} />
+              <Route path="/weather" element={<WeatherModule />} />
+              <Route path="/bookmarks" element={<Bookmarks />} />
+              <Route path="/memorize" element={<Memorize />} />
+              <Route path="/wikipedia" element={<Wikipedia />} />
+              <Route path="/vocabulary" element={<Vocabulary />} />
+              <Route path="/music-player" element={<MusicPlayer />} /> */}
+
+              <Route path="/dev" element={<Dev />} />
+            </Routes>
+          </Suspense>
         </div>
       </div>
     </div>
