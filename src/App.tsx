@@ -39,10 +39,10 @@ function App() {
     { name: "Crypto", path: "/crypto", app: <CryptoModule /> },
     { name: "Weather", path: "/weather", app: <WeatherModule /> },
     { name: "Bookmarks", path: "/bookmarks", app: <Bookmarks /> },
-    // { name: "Memorize", path: "/memorize", app: <Memorize /> },
-    // { name: "Wikipedia", path: "/wikipedia", app: <Wikipedia /> },
-    // { name: "Vocabulary", path: "/vocabulary", app: <Vocabulary /> },
-    // { name: "MusicPlayer", path: "/music-player", app: <MusicPlayer /> },
+    { name: "Memorize", path: "/memorize", app: <Memorize /> },
+    { name: "Wikipedia", path: "/wikipedia", app: <Wikipedia /> },
+    { name: "Vocabulary", path: "/vocabulary", app: <Vocabulary /> },
+    { name: "MusicPlayer", path: "/music-player", app: <MusicPlayer /> },
   ];
 
 
@@ -81,11 +81,26 @@ function App() {
         <div className="app-wrapper">
           <Routes>
 
-            {/* {apps.map((app) => {
+            {apps.map((app) => {
               return <Route path={app.path} element={app.app} key={nanoid()} />;
-            })} */}
-
-
+            })}
+            {/* <Route path="/notes" element={<Notes />} />
+            <Route path="/todo" element={<ToDoList />} />
+            <Route path="/calculator" element={<Calculator />} />
+            <Route path="/ios-calculator" element={<IOSCalculator />} />
+            <Route path="/timer" element={<Timer />} />
+            <Route path="/pomodoro" element={<Pomodoro />} />
+            <Route path="/currency-converter" element={<CurrencyConverter />} />
+            <Route path="/dictionary" element={<Dictionary />} />
+            <Route path="/habit-tracker" element={<HabitTracker />} />
+            <Route path="/crypto" element={<CryptoModule />} />
+            <Route path="/weather" element={<WeatherModule />} />
+            <Route path="/bookmarks" element={<Bookmarks />} />
+            <Route path="/memorize" element={<Memorize />} />
+            <Route path="/wikipedia" element={<Wikipedia />} />
+            <Route path="/vocabulary" element={<Vocabulary />} />
+            <Route path="/music-player" element={<MusicPlayer />} /> */}
+            
             <Route path="/dev" element={<Dev />} />
           </Routes>
         </div>
