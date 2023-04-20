@@ -81,9 +81,9 @@ function App() {
         <div className="app-wrapper">
           <Routes>
 
-            {apps.map((app) => {
+            {/* {apps.map((app) => {
               return <Route path={app.path} element={app.app} key={nanoid()} />;
-            })}
+            })} */}
 
 
             <Route path="/dev" element={<Dev />} />
