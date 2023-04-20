@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "./Bookmarks.scss";
+import axios from "axios";
+
 
 function Bookmarks() {
   const [bookmarks, setBookmarks] = useState<any>([
@@ -22,11 +24,11 @@ function Bookmarks() {
 
   const handleNewBookmarkSubmit = (event: any) => {
     event.preventDefault();
-    fetch(newBookmark)
-      .then((response) => response.text())
-      .then((html) => {
+    axios
+      .get(newBookmark)
+      .then((response) => {
         const parser = new DOMParser();
-        const doc: any = parser.parseFromString(html, "text/html");
+        const doc: any = parser.parseFromString(response.data, "text/html");
         const title = doc.head.querySelector("title").textContent;
         setBookmarks([...bookmarks, { name: title, url: newBookmark }]);
         setNewBookmark("");

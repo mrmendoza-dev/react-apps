@@ -1,0 +1,122 @@
+.drop-shadow {
+  filter: drop-shadow(2px 4px 8px #585858);
+}
+
+.caret-color {
+  caret-color: red;
+}
+
+.scroll-snap-wrapper {
+  height: 200px;
+  overflow: auto;
+  scroll-snap-type: y mandatory;
+}
+.scroll-snap {
+  scroll-snap-align: center;
+}
+
+.modal {
+  visibility: hidden;
+  background-color: #585858;
+}
+.modal:target {
+  visibility: visible;
+}
+
+.resize {
+  resize: both;
+  background-color: blue;
+  overflow: auto;
+}
+
+.typing-demo {
+  width: 22ch;
+  animation: typing 2s steps(22), blink 0.5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 2em;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.modal-react {
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  padding: 20px;
+  width: 500px;
+  max-width: 90%;
+}
+
+.hover-modal {
+  display: "inline-block";
+}
+
+.hover-modal-content {
+    position: fixed;
+    /* top: 50%; */
+    /* bottom: 0; */
+    /* left: 50%; */
+    transform: translate(0, -100%);
+    width: 200px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+
+}
+
+.test-module {
+    background-color: #585858;
+    width: 400px;
+    border: 1px solid black;
+    padding: 1em 2em;
+}
+
+.Dev {
+  height: 100%;
+}
+
+.frosted {
+  border-radius: 8px;
+  backdrop-filter: blur(20px);
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 300px;
+  height: 300px;
+  z-index: 10;
+}
+
+.test-module-list {
+  height: 100vh;
+  overflow-y: scroll;
+}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./WeatherModule.scss";
+import axios from "axios";
 
 const WeatherModule = () => {
   const [weatherData, setWeatherData] = useState<any>(null);
@@ -7,14 +8,10 @@ const WeatherModule = () => {
   function updateWeather() {
     navigator.geolocation.getCurrentPosition((position) => {
       let url = `https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial`;
-      fetch(url)
-        .then((res) => {
-          if (!res.ok) {
-            throw Error("Weather data not available");
-          }
-          return res.json();
-        })
-        .then((data) => {
+      axios
+        .get(url)
+        .then((response) => {
+          const data = response.data;
           setWeatherData(data);
           console.log(data);
         })

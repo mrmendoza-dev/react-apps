@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { icons } from "../../assets/icons";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import "./CryptoModule.scss";
+import axios from "axios";
 
 const CryptoModule = () => {
   const [cryptoData, setCryptoData] = useState<any>(null);
@@ -16,18 +17,13 @@ const CryptoModule = () => {
     const API_URL = "https://api.coingecko.com/api/v3";
     let url = `${API_URL}/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1`;
 
-    fetch(url)
-      .then((res) => {
-        if (!res.ok) {
-          throw Error("Something went wrong");
-        }
-        return res.json();
+    axios
+      .get(url)
+      .then((response) => {
+        setCryptoData(response.data);
       })
-      .then((data) => {
-        setCryptoData(data);
-      })
-      .catch((err) => {
-        console.error(err);
+      .catch((error) => {
+        console.error(error);
         fetch("./data/cryptoData.json")
           .then((res) => {
             if (!res.ok) {

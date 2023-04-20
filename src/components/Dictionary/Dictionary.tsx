@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-import "./index.scss";
+import "./Dictionary.scss";
+import axios from "axios";
+
 
 function Dictionary() {
   const dictionaryKey = "a6ee5012-0997-482f-968b-1fc532f34cb2";
@@ -26,16 +28,13 @@ function Dictionary() {
   }, []);
 
   function getDictionaryResult() {
-    fetch(
-      `https://dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=${dictionaryKey}`
-    )
-      .then((response) => response.json())
-      .then((data) => {
+    axios
+      .get(
+        `https://dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=${dictionaryKey}`
+      )
+      .then((response) => {
+        let data = response.data;
         let wordChunk = data[0];
-
-        // console.log(wordChunk);
-
-        // console.log(wordChunk.shortdef);
 
         let newWord = {
           word: word,
@@ -45,6 +44,9 @@ function Dictionary() {
         };
 
         setWordData(newWord);
+      })
+      .catch((error) => {
+        console.error(error);
       });
   }
 
@@ -61,13 +63,12 @@ function Dictionary() {
       </form>
 
       <p className="">{wordData.word}</p>
-
       <p className="">{wordData.fl}</p>
       <p className="">{wordData.hwi}</p>
 
-      {wordData.definition.map((def) => {
+      {wordData.definition.map((def: string, index: number) => {
         return (
-          <p key={def} className="">
+          <p key={index} className="">
             {def}
           </p>
         );

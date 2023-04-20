@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;300;400;500;600;700&display=swap");
+
+.Calculator {
+  --clr-bg: #181818;
+  --clr-main: #202020;
+  --clr-hover: #3d3d3d;
+  --clr-font: #ffffff;
+  --clr-alt: #aaaaaa;
+  --transition: background-color 200ms;
+
+  width: 400px;
+  background-color: var(--clr-main);
+  color: #ffffff;
+
+  --btn-size: 85px;
+  --btn-space: 0.25em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-size: 16px;
+  font-weight: 300;
+  padding: 0.4em;
+  font-family: "Open Sans", sans-serif;
+}
+
+.Calculator .input {
+  /* height: 200px; */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0.2em 0em;
+}
+.Calculator .input input {
+  width: 100%;
+  border: none;
+  background-color: inherit;
+  text-align: right;
+  font: inherit;
+  font-weight: 400;
+  font-size: 3.4rem;
+}
+
+.Calculator .input input:focus {
+  outline: none;
+}
+
+.Calculator .buttons {
+  width: 100%;
+}
+
+.Calculator .buttons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--btn-space);
+}
+
+.Calculator .btn-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--btn-space);
+  width: 100%;
+}
+
+.Calculator .btn-row button {
+  --size: 85px;
+  /* font: inherit; */
+  font-weight: 400;
+  width: 95px;
+  height: 48px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  background-color: #3b3b3b;
+  transition: all 200ms;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Calculator .btn-row button:hover {
+  background-color: #323232;
+}
+.Calculator .btn-row button:focus {
+  outline: none;
+}
+
+.Calculator .btn-row .gray {
+  background-color: #323232;
+}
+.Calculator .btn-row .gray:hover {
+  background-color: #3c3c3c;
+}

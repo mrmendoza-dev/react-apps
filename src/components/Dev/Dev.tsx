@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import "./index.scss";
+import "./Dev.scss";
 
 function Dev() {
   return (

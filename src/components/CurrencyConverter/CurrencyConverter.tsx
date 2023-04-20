@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import currencies from "./currencies";
-import "./index.scss";
+import axios from "axios";
+import "./CurrencyConverter.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { icons } from "../../assets/icons";
 
 function CurrencyConverter() {
   const [fromCurrency, setFromCurrency] = useState("USD");
@@ -10,15 +13,22 @@ function CurrencyConverter() {
   const [convertedAmount, setConvertedAmount] = useState<any>();
 
   useEffect(() => {
-    fetch(`https://api.exchangerate-api.com/v4/latest/${fromCurrency}`)
-      .then((res) => res.json())
-      .then((data: any) => {
+    axios
+      .get(`https://api.exchangerate-api.com/v4/latest/${fromCurrency}`)
+      .then((response) => {
+        const data = response.data;
         setExchangeRate(data.rates[toCurrency]);
         setConvertedAmount((amount * data.rates[toCurrency]).toFixed(2));
+      })
+      .catch((error) => {
+        console.log(error);
       });
   }, [fromCurrency, toCurrency, amount]);
 
-  //   console.log(currencies)
+  const swapCurrencies = () => {
+    setFromCurrency(toCurrency);
+    setToCurrency(fromCurrency);
+  };
 
   return (
     <div className="CurrencyConverter">
@@ -33,19 +43,20 @@ function CurrencyConverter() {
       >
         {currencies.map((currency: any) => {
           return (
-            <option value={currency.code}>
+            <option key={currency.code} value={currency.code}>
               {currency.name} {currency.code}
             </option>
           );
         })}
       </select>
+      <button onClick={swapCurrencies}>&#8646;</button>
       <select
         value={toCurrency}
         onChange={(e) => setToCurrency(e.target.value)}
       >
         {currencies.map((currency: any) => {
           return (
-            <option value={currency.code}>
+            <option key={currency.code} value={currency.code}>
               {currency.name} {currency.code}
             </option>
           );
